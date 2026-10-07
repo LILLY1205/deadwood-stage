@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deadwood Stage</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="stagecoachMenu" class="menu-wrapper">
+        <div class="clipboard-container">
+            <div class="paper-area">
+                <div class="header-section">
+                    <h1 class="stamped-header">Deadwood Stage</h1>
+                    <button class="close-tab" onclick="closeUI()">Close</button>
+                </div>
+                <div class="content-scrollable">
+
+                    <!-- No Group View -->
+                    <div id="noGroupView">
+                        <h2 class="section-heading">Route Information</h2>
+                        <div class="info-card center-text">
+                            <p>Deadwood &rarr; Destination</p>
+                            <p class="sub-text">Escort the stagecoach safely through robber territory</p>
+                        </div>
+
+                        <div class="action-grid">
+                            <button class="action-card" onclick="createGroup()">
+                                <span>Create Group</span>
+                            </button>
+                        </div>
+
+                        <div class="form-group">
+                            <h3 class="sub-heading">Join Existing Group</h3>
+                            <input type="number" id="groupIdInput" placeholder="Enter Group ID" min="1" class="paper-input">
+                            <button onclick="joinGroup()" class="paper-btn btn-good full-width">Join Group</button>
+                        </div>
+                    </div>
+
+                    <!-- In Group View (pre-mission) -->
+                    <div id="inGroupView" style="display:none;">
+                        <h2 class="section-heading">Escort Group</h2>
+                        <div class="info-card center-text">
+                            <p class="group-display">Group ID: <span id="displayGroupId">-</span></p>
+                            <p class="sub-text">Share this ID with other players to join</p>
+                        </div>
+
+                        <div class="action-grid">
+                            <button class="action-card btn-good-card" onclick="startMission()">
+                                <span>Start Mission</span>
+                            </button>
+                            <button class="action-card btn-bad-card" onclick="leaveGroup()">
+                                <span>Leave Group</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Mission Active View -->
+                    <div id="missionView" style="display:none;">
+                        <h2 class="section-heading">Stagecoach Controls</h2>
+                        <div class="info-card center-text">
+                            <p>Route: Deadwood &rarr; Destination</p>
+                        </div>
+
+                        <div class="action-grid">
+                            <button class="action-card" onclick="startStagecoach()">
+                                <span>Start Stagecoach</span>
+                            </button>
+                            <button class="action-card" onclick="speedUp()">
+                                <span>Speed Up</span>
+                            </button>
+                            <button class="action-card" onclick="slowDown()">
+                                <span>Slow Down</span>
+                            </button>
+                            <button class="action-card" onclick="haltStagecoach()">
+                                <span>Halt</span>
+                            </button>
+                            <button class="action-card" onclick="holdPosition()">
+                                <span>Hold Position</span>
+                            </button>
+                        </div>
+
+                        <hr class="paper-divider">
+
+                        <div class="action-grid">
+                            <button class="action-card btn-bad-card" onclick="endMission()">
+                                <span>End Mission</span>
+                            </button>
+                            <button class="action-card" onclick="leaveGroup()">
+                                <span>Leave Group</span>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
